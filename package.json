@@ -1,0 +1,21 @@
+{
+  "name": "adafruit_io_stats",
+  "version": "1.0.0",
+  "description": "An application to display data from Adafruit.IO",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "author": "Byron Blank",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
