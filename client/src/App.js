@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Feeds from './components/Feeds'
 import Feed from './components/Feed';
 
-import './App.css';
 import { ApolloClient } from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
