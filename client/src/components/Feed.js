@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
+import AddData from './AddData';
 
 const FEEDDATA_QUERY = gql`
     query GetFeedData($username: String!, $feed_key: String!) {
@@ -55,6 +56,8 @@ export default class Feed extends Component {
                                  </table>
 
                                  <hr />
+                                 {feed_key == "switch" ? <AddData /> : ""}
+                        
                                 <Link to="/" className="btn btn-primary">Back</Link>
                             </div>
                         )

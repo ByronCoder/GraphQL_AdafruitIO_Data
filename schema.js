@@ -1,27 +1,8 @@
 const axios = require('axios');
 const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema} = require('graphql');
 
-
-const FeedType = new GraphQLObjectType({
-    name: 'Feed',
-    fields: () => ({
-        id: {type: GraphQLInt},
-        name: {type: GraphQLString},
-        key: {type: GraphQLString}
-
-
-    })
-})
-
-const FeedData = new GraphQLObjectType({
-    name: "FeedData",
-    fields: () => ({
-        id: {type: GraphQLString},
-        value: {type: GraphQLString},
-        feed_id: {type: GraphQLInt},
-        created_at: {type: GraphQLString}
-    })
-})
+const FeedType = require('./types/Feed');
+const FeedData = require('./types/FeedData');
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
@@ -52,6 +33,20 @@ const RootQuery = new GraphQLObjectType({
     }
 })
 
-module.exports = new GraphQLSchema({
-    query: RootQuery
+const AddFeedDataMutation = require('./mutations/add-feeddata');
+
+const RootMutationType = new GraphQLObjectType({
+    name: 'RootMutationType',
+
+    fields: () => ({
+        AddFeedData: AddFeedDataMutation
+       
+    })
 })
+
+const aioSchema = new GraphQLSchema({
+    query: RootQuery,
+    mutation: RootMutationType
+})
+module.exports = aioSchema;
+    
