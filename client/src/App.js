@@ -10,7 +10,7 @@ import { HttpLink } from 'apollo-link-http';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: 'http://localhost:5000/graphql'
+  uri: 'https://bman-nodejs-test.azurewebsites.net/graphql'
 })
 
 const client = new ApolloClient({
